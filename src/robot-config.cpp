@@ -30,7 +30,7 @@ bool DrivetrainLNeedsToBeStopped_Controller1 = true;
 bool DrivetrainRNeedsToBeStopped_Controller1 = true;
 bool RollerNeedsToBeStopped = true;
 
-/*void shortShot() {
+void shortShot() {
   Intake.spinFor(5,sec);
   Intake.spinFor(reverse, 0.3, sec);
   Brrrtat.spinFor(3, sec);
@@ -47,11 +47,11 @@ void longShot() {
   Intake.spinFor(reverse, 0.3, sec);
   Brrrtat.spinFor(10, sec);
   Intake.spinFor(1,sec);
-}*/
+}
 
-/*void (*ssCallback)() = &shortShot;
+void (*ssCallback)() = &shortShot;
 void (*msCallback)() = &medShot;
-void (*lsCallback)() = &longShot;*/
+void (*lsCallback)() = &longShot;
 
 // define a task that will handle monitoring inputs from Controller1
 int rc_auto_loop_function_Controller1() {
@@ -60,8 +60,8 @@ int rc_auto_loop_function_Controller1() {
   Roller.setVelocity(50, pct);
   // process the controller input every 20 milliseconds
   // update the motors based on the input values
-  /*Controller1.ButtonX.pressed(*ssCallback);
-  Controller1.ButtonY.pressed(*msCallback);*/
+  Controller1.ButtonX.pressed(*ssCallback);
+  Controller1.ButtonY.pressed(*msCallback);
   
   while(true) {
     if(RemoteControlCodeEnabled) {
